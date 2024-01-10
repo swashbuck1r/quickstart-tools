@@ -20,12 +20,12 @@ As an example of some custom tools, the Dockerfile in this repository will gener
 * Cloud provider tools
  * AWS cli v2
 * Kubernetes tools
- * `kubectl`
- * `helm`
- * `kustomize`
+  * `kubectl`
+  * `helm`
+  * `kustomize`
 * Declarative infrastructure tools
- * `opentofu` (terraform replacement)
- * `terragrunt`
+  * `opentofu` (terraform replacement)
+  * `terragrunt`
 
 ## Building and publishing this container image
 
