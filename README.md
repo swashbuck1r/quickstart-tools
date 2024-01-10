@@ -78,12 +78,13 @@ on:
       - '**'
 
 jobs:
-  build-and-publsh:
+  test-custom-commands:
     steps:
       - name: Print CLI versions
-        uses: docker://swashbuck1r/quickstart-go-app:0.0.4
+        uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
         run: |
+          set -x +e
           kubectl version
           helm version
           kustomize version
