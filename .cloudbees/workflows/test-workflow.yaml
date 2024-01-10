@@ -14,8 +14,7 @@ jobs:
         uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
         run: |
-          set -x
-          set -e
+          set -x +e
           kubectl version || true
           helm version || true
           kustomize version || true
