@@ -16,7 +16,7 @@ jobs:
         run: |
           set -x
           set -e
-          kubectl version
+          kubectl version || true
           helm version || true
           kustomize version || true
           tofu version
