@@ -1,4 +1,4 @@
-This quickstart project shows how to create your own container image to customize the set of CLI tools that can be used by steps in your CloudBees workflow.
+This quickstart project shows how to create your own container image to customize the set of CLI tools that can be used by steps in your [CloudBees platform](https://www.cloudbees.com/products/saas-platform) workflow.
 
 The Dockerfile in this repository will generate an image with the following tools pre-installed:
 
