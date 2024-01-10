@@ -15,7 +15,7 @@ The Dockerfile in this repository will generate an image with the following tool
 
 ## Building and publishing this container image
 
-The [.cloudbees/workflows/workflow.yaml](./blob/main/.cloudbees/workflows/workflow.yaml) workflow definition shows how to use CloudBees to build the Dockerfile definition into a container image and publish it to a container registry.
+The [.cloudbees/workflows/workflow.yaml](.cloudbees/workflows/workflow.yaml) workflow definition shows how to use CloudBees to build the Dockerfile definition into a container image and publish it to a container registry.
 
 ```
 apiVersion: automation.cloudbees.io/v1alpha1
