@@ -1,6 +1,20 @@
 This quickstart project shows how to create your own container image to customize the set of CLI tools that can be used by steps in your [CloudBees platform](https://www.cloudbees.com/products/saas-platform) workflow.
 
-The Dockerfile in this repository will generate an image with the following tools pre-installed:
+
+## Overview
+
+When automating the delivery of your software components, it is often necessary to interact with custom tools that are used or provided by your own organization.  Rather than using a generic image and then installing the required tools each time your automation runs, CloudBees platform makes it easy to build your own custom container images and use those in your workflow steps.   This allows your organization to maintain custom containers with the right set of preconfigured tools so that they can be easily use by your dev teams.
+
+Using a custom container images:
+
+* Create a repository with the Dockerfile definition for your custom image (this repo is an example of that).
+* Define a CloudBees workflow to describe how to build and publish your container image to your container registry.
+* Register the repository as a component on your CloudBees platform organization.
+* Each time you update the Dockerfile in your source repository, CloudBees will automatically build and publish the new container image for your dev teams to use in their workflows.
+* Your CloudBees workflows can reference the custom container from their workflow steps and your custom tools will be available to any commands that the step runs.
+
+
+As an example of some custom tools, the Dockerfile in this repository will generate an image with the following tools pre-installed:
 
 * General tools: `bash`, `curl`, `unzip`, `jq`, and `yq`
 * Cloud provider tools
@@ -15,7 +29,7 @@ The Dockerfile in this repository will generate an image with the following tool
 
 ## Building and publishing this container image
 
-The [.cloudbees/workflows/workflow.yaml](.cloudbees/workflows/workflow.yaml) workflow definition shows how to use CloudBees to build the Dockerfile definition into a container image and publish it to a container registry.
+The [.cloudbees/workflows/workflow.yaml](.cloudbees/workflows/workflow.yaml) workflow definition shows how to use CloudBees to build the [Dockerfile](./Dockerfile) definition into a container image and publish it to a container registry.
 
 ```
 apiVersion: automation.cloudbees.io/v1alpha1
