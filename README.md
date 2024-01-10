@@ -8,10 +8,10 @@ When automating the delivery of your software components, it is often necessary 
 Using a custom container images:
 
 * Create a repository with the Dockerfile definition for your custom image (this repo is an example of that).
-* Define a CloudBees workflow to describe how to build and publish your container image to your container registry.
-* Register the repository as a component on your CloudBees platform organization.
+* Define a CloudBees workflow to build and publish your container image to your container registry.
+* Register the repository as a component in your CloudBees platform organization.
 * Each time you update the Dockerfile in your source repository, CloudBees will automatically build and publish the new container image for your dev teams to use in their workflows.
-* Your CloudBees workflows can reference the custom container from their workflow steps and your custom tools will be available to any commands that the step runs.
+* Your CloudBees workflows can reference the custom container from workflow steps and your custom tools will be available to any commands that the steps run.
 
 
 As an example of some custom tools, the Dockerfile in this repository will generate an image with the following tools pre-installed:
