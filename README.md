@@ -1,7 +1,7 @@
 This quickstart project shows how to create your own container image to customize the set of CLI tools that can be used by steps in your [CloudBees platform](https://www.cloudbees.com/products/saas-platform) workflow.
 
 
-## Overview
+## Building custom container images to use with CloudBees workflows
 
 When automating the delivery of your software components, it is often necessary to interact with custom tools that are used or provided by your own organization.  Rather than using a generic image and then installing the required tools each time your automation runs, CloudBees platform makes it easy to build your own custom container images and use those in your workflow steps.   This allows your organization to maintain custom containers with the right set of preconfigured tools so that they can be easily use by your dev teams.
 
