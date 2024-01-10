@@ -18,7 +18,7 @@ As an example of some custom tools, the Dockerfile in this repository will gener
 
 * General tools: `bash`, `curl`, `unzip`, `jq`, and `yq`
 * Cloud provider tools
-  * `aws` cli v2
+  * `aws` (v2)
 * Kubernetes tools
   * `kubectl`
   * `helm`
