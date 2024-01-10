@@ -11,7 +11,7 @@ jobs:
   build-and-publsh:
     steps:
       - name: Print CLI versions
-        uses: docker://swashbuck1r/quickstart-go-app:0.0.1
+        uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
         run: |
           kubectl version
