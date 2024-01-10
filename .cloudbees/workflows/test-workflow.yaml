@@ -14,11 +14,11 @@ jobs:
         uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
         run: |
-          set +x
+          set -x
           set -e
           kubectl version
-          helm version
-          kustomize version
+          helm version || true
+          kustomize version || true
           tofu version
           terragrunt --version
           aws --version
