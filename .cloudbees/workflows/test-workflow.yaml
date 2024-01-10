@@ -8,12 +8,14 @@ on:
       - "**"
 
 jobs:
-  build-and-publsh:
+  testing:
     steps:
       - name: Print CLI versions
         uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
         run: |
+          set +x
+          set -e
           kubectl version
           helm version
           kustomize version
