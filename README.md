@@ -29,7 +29,7 @@ As an example of some custom tools, the Dockerfile in this repository will gener
 
 ## Building and publishing this container image
 
-The [.cloudbees/workflows/workflow.yaml](.cloudbees/workflows/workflow.yaml) workflow definition shows how to use CloudBees to build the [Dockerfile](./Dockerfile) definition into a container image and publish it to a container registry.
+The [.cloudbees/workflows/workflow.yaml](.cloudbees/workflows/workflow.yaml) workflow definition shows how to use CloudBees to build the [Dockerfile](./Dockerfile) definition into a container image and publish it to a container registry using the [Kaniko](https://docs.cloudbees.com/docs/cloudbees-saas-platform/latest/deploy-tools/kaniko) action.
 
 ```
 apiVersion: automation.cloudbees.io/v1alpha1
