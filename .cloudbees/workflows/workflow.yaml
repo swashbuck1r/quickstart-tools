@@ -18,6 +18,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
           role-to-assume: cloudbees-infra-mgmt
           role-duration-seconds: "3600" # need to override default of 6h as our role has 1h max
+          
+      - Login EKS
+        uses: cloudbees-io/configure-eks-credentials@v1
+        with:
+          name: cloudbees-quickstart
+
       - name: Print CLI versions
         uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
@@ -26,12 +32,7 @@ jobs:
           echo hello
           aws sts get-caller-identity
           aws s3 ls
-          
-
-
-      # - uses: cloudbees-io/configure-eks-credentials@v0
-      #   with:
-      #     name: arch-saas
+          kubectl get pods --all-namespaces
 
       # - uses: cloudbees-io/configure-ecr-credentials@v0
 
