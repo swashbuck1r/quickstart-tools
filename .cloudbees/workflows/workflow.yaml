@@ -19,7 +19,7 @@ jobs:
           role-to-assume: cloudbees-infra-mgmt
           role-duration-seconds: "3600" # need to override default of 6h as our role has 1h max
           
-      - Login EKS
+      - name: Login EKS
         uses: cloudbees-io/configure-eks-credentials@v1
         with:
           name: cloudbees-quickstart
