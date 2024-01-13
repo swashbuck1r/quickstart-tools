@@ -14,8 +14,8 @@ jobs:
         uses: cloudbees-io/configure-aws-credentials@v0
         with:
           aws-region: us-east-1
-          aws-access-key-id: ${{ vars.cloudbees_saas_test_access_key_id }}
-          aws-secret-access-key: ${{ secrets.cloudbees_saas_test_secret_access_key }}
+          aws-access-key-id: ${{ vars.aws_access_key_id }}
+          aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
           role-to-assume: service-eks-role
           role-duration-seconds: "3600" # need to override default of 6h as our role has 1h max
       - name: Print CLI versions
