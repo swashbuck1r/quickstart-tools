@@ -1,0 +1,12 @@
+
+
+## Credits for MIT contributions:
+
+Some parts of this project are work, which are copied from, derived from, or
+inspired by https://github.com/alpine-docker (MIT https://github.com/alpine-docker/k8s/blob/master/LICENSE), Copyright (c) 2018
+
+
+## Credits for stackoverflow community contributions:
+Stackoverflow contributions are licensed under https://creativecommons.org/licenses/by-sa/4.0/
+
+* https://stackoverflow.com/questions/60298619/awscli-version-2-on-alpine-linux

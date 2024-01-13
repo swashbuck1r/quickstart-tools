@@ -8,20 +8,36 @@ on:
       - '**'
 
 jobs:
-  build-and-publsh:
+  deploy:
     steps:
-      - name: checkout code
-        uses: cloudbees-io/checkout@v1
-
-      - name: Setup Dockerhub container registry
-        uses: cloudbees-io/configure-oci-credentials@v1
+      - name: Login AWS
+        uses: cloudbees-io/configure-aws-credentials@v0
         with:
-          registry: index.docker.io # or docker.io
-          username: ${{ vars.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          aws-region: us-east-1
+          aws-access-key-id: ${{ vars.cloudbees_saas_test_access_key_id }}
+          aws-secret-access-key: ${{ secrets.cloudbees_saas_test_secret_access_key }}
+          role-to-assume: service-eks-role
+          role-duration-seconds: "3600" # need to override default of 6h as our role has 1h max
+      - name: Print CLI versions
+        uses: docker://swashbuck1r/quickstart-tools:0.0.1
+        shell: bash
+        run: |
+          set -x +e
+          aws sts get-caller-identity
+          
 
-      - name: Build and push container image to registry
-        uses: cloudbees-io/kaniko@v1
-        with:
-          destination: ${{ vars.DOCKERHUB_USERNAME }}/quickstart-tools:${{ cloudbees.version }}
-  
+
+      # - uses: cloudbees-io/configure-eks-credentials@v0
+      #   with:
+      #     name: arch-saas
+
+      # - uses: cloudbees-io/configure-ecr-credentials@v0
+
+      # - uses: docker://alpine/helm:latest
+      #   run: |
+      #     helm upgrade \
+      #       --namespace simple-api \
+      #       --create-namespace \
+      #       --install \
+      #       --version ${{ needs.build.outputs.chart-version }} \
+      #       app-chart ${{ needs.build.outputs.chart-location }}
