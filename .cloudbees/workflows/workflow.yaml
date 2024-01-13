@@ -25,6 +25,7 @@ jobs:
           set -x +e
           echo hello
           aws sts get-caller-identity
+          aws s3 ls
           
 
 
