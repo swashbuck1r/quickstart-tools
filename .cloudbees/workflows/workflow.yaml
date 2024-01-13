@@ -16,7 +16,7 @@ jobs:
           aws-region: us-east-1
           aws-access-key-id: ${{ vars.aws_access_key_id }}
           aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
-          role-to-assume: cloudbees-eks-deployer
+          role-to-assume: cloudbees-infra-mgmt
           role-duration-seconds: "3600" # need to override default of 6h as our role has 1h max
       - name: Print CLI versions
         uses: docker://swashbuck1r/quickstart-tools:0.0.1
