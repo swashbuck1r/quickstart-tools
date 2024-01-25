@@ -18,29 +18,35 @@ jobs:
           aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
           role-to-assume: cloudbees-infra-mgmt
           role-duration-seconds: "3600" # need to override default of 6h as our role has 1h max
-          
-      - name: Login EKS
-        uses: cloudbees-io/configure-eks-credentials@v1
+
+      - name: checkout code
+        uses: cloudbees-io/checkout@v1
+
+      - uses: cloudbees-io/configure-aws-credentials@v1
+        id: aws-login
         with:
-          name: cloudbees-quickstart
+          aws-region: us-east-1
+          aws-access-key-id: ${{ vars.aws_access_key_id }}
+          aws-secret-access-key: ${{ secrets.aws_secret_access_key }}
+          role-to-assume: cloudbees-infra-mgmt-role
+          role-external-id: cloudbees
+          role-duration-seconds: "3600"
 
       - name: Print CLI versions
         uses: docker://swashbuck1r/quickstart-tools:0.0.1
         shell: bash
         run: |
           set -x +e
-          echo hello
+          echo hello2
           aws sts get-caller-identity
           aws s3 ls
           kubectl get pods --all-namespaces
 
-      # - uses: cloudbees-io/configure-ecr-credentials@v0
-
-      # - uses: docker://alpine/helm:latest
-      #   run: |
-      #     helm upgrade \
-      #       --namespace simple-api \
-      #       --create-namespace \
-      #       --install \
-      #       --version ${{ needs.build.outputs.chart-version }} \
-      #       app-chart ${{ needs.build.outputs.chart-location }}
+      - name: terraform test
+        uses: docker://hashicorp/terraform:latest
+        shell: sh
+        run: |
+          terraform init
+          terraform apply -auto-approve
+          terraform output 
+          
