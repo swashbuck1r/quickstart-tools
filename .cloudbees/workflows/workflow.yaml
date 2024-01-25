@@ -32,16 +32,6 @@ jobs:
           role-external-id: cloudbees
           role-duration-seconds: "3600"
 
-      - name: Print CLI versions
-        uses: docker://swashbuck1r/quickstart-tools:0.0.1
-        shell: bash
-        run: |
-          set -x +e
-          echo hello2
-          aws sts get-caller-identity
-          aws s3 ls
-          kubectl get pods --all-namespaces
-
       - name: terraform test
         uses: docker://hashicorp/terraform:latest
         shell: sh
